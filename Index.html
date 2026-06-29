@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAX CREATIONS | Premium Real Estate Content Agency</title>
+    <style>
+        /* BASE DESIGN SYSTEM (MATCHING FRAMER ESTABLISHED STYLES) */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #0d0d0d;
+            color: #f3f3f3;
+            overflow-x: hidden;
+        }
+
+        /* FIXED INTERACTIVE HEADER */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(13, 13, 13, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #ffffff;
+        }
+
+        nav a {
+            color: #999999;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+        }
+
+        /* LAYOUT & CONTAINERS */
+        section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 160px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            color: #ffffff;
+            max-width: 800px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #888888;
+            max-width: 600px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: #ffffff;
+            color: #000000;
+            padding: 14px 28px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+        }
+
+        /* GRID DEFINITIONS (SERVICES & SHOWCASE) */
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 60px;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: #141414;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 40px;
+            border-radius: 12px;
+            transition: border-color 0.3s ease;
+        }
+
+        .service-card:hover {
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 16px;
+            color: #ffffff;
+        }
+
+        .service-card p {
+            color: #888888;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* NEW ADDITION: ADVANCED AI CREATIONS */
+        .ai-badge {
+            display: inline-block;
+            background: linear-gradient(90deg, #3a3a3a, #1a1a1a);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            color: #d4d4d4;
+        }
+
+        /* NEW ADDITION: CORPORATE ABOUT SECTION */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .about-text p {
+            color: #888888;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        /* NEW ADDITION: HIGH-CONVERTING CONTACT ENGINE */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        label {
+            font-size: 0.85rem;
+            color: #666666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        input, textarea {
+            background-color: #141414;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 16px;
+            border-radius: 6px;
+            color: #ffffff;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        form button {
+            background-color: #ffffff;
+            color: #000000;
+            border: none;
+            padding: 16px;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            margin-top: 10px;
+        }
+
+        form button:hover {
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            padding-top: 25px;
+        }
+
+        .info-block h4 {
+            font-size: 0.85rem;
+            color: #666666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .info-block p, .info-block a {
+            font-size: 1.2rem;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        footer {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            color: #444444;
+            font-size: 0.85rem;
+        }
+
+        /* RESPONSIVE BREAKPOINTS */
+        @media (max-width: 900px) {
+            .about-content, .contact-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .hero h1 { font-size: 2.5rem; }
+            nav { display: none; } /* Mobile optimization placeholder */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- STICKY HEADER NAVIGATION -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">MAX CREATIONS</div>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#ai-gallery">AI Gallery</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO / HOME SECTION -->
+    <section id="home" class="hero">
+        <h1>High-End Visual Storytelling for Elite Real Estate.</h1>
+        <p>We deploy state-of-the-art capture workflows and advanced digital systems to elevate property listings, clear sales fast, and build timeless agency authority.</p>
+        <a href="#contact" class="btn-primary">Book Production</a>
+    </section>
+
+    <!-- SERVICES GRID (EXCLUDING PRECISION LIDAR TEXT) -->
+    <section id="services">
+        <h2 class="section-title">Core Disciplines</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Cinematic Video Production</h3>
+                <p>High-production-value property films configured to capture architectural emotion and luxury. Meticulous sound design, custom pacing, and smooth transitions tailored to digital listing algorithms.</p>
+            </div>
+            <div class="service-card">
+                <h3>Architectural Photography</h3>
+                <p>Meticulously composed, high-exposure image capture. We control depth, geometric symmetry, and dynamic lighting transitions to translate real-world premium textures directly onto screen layouts.</p>
+            </div>
+            <div class="service-card">
+                <h3>Schematic Floor Plans</h3>
+                <p>Crisp, functional, high-fidelity spatial layouts mapping clear scale data for structural layouts, ensuring clean, immediately readable digital brochures for prospective buyers.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: ADVANCED AI CREATIONS -->
+    <section id="ai-gallery">
+        <h2 class="section-title">Next-Gen AI Enhancements</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <span class="ai-badge">Generative Architecture</span>
+                <h3>Virtual Staging Engine</h3>
+                <p>Reconstruct cold, vacant environments into ultra-realistic, architecturally complete interior layouts without expensive real-world physical design logistics.</p>
+            </div>
+            <div class="service-card">
+                <span class="ai-badge">Synthesized Lighting</span>
+                <h3>Day-to-Night Timelapses</h3>
+                <p>Transform standard daytime property captures into deep, striking dusk aesthetics. Clean, professional twilight rendering generated seamlessly without campaign delays or scheduling overhead.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CORPORATE RE-WRITE ABOUT US -->
+    <section id="about">
+        <h2 class="section-title">The Agency Identity</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Operating at the absolute edge of digital asset creation for over 2.5 years, MAX CREATIONS is a premier production collective deploying across Australia's premium real estate landscape.</p>
+                <p>Founded by content director Max De Juan, our studio synthesizes on-site technical expertise with an advanced network of post-production film, photographic, and design editors. We build strategic visual ecosystems that scale modern property brokerages.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CORPORATE CONTACT ENGINE -->
+    <section id="contact">
+        <h2 class="section-title">Initiate Production</h2>
+        <div class="contact-container">
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required placeholder="e.g. John Smith">
+                </div>
+                <div class="form-group">
+                    <label for="brokerage">Agency / Brokerage</label>
+                    <input type="text" id="brokerage" name="brokerage" placeholder="e.g. Prestige Properties">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="_replyto" required placeholder="name@agency.com">
+                </div>
+                <div class="form-group">
+                    <label for="message">Project Scope</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="Describe the property listing and timeline requirements..."></textarea>
+                </div>
+                <button type="submit">Submit Campaign Brief</button>
+            </form>
+
+            <div class="contact-info">
+                <div class="info-block">
+                    <h4>Direct Channel</h4>
+                    <p><a href="mailto:max@maxrealestatecreations.com">max@maxrealestatecreations.com</a></p>
+                </div>
+                <div class="info-block">
+                    <h4>Studio Base</h4>
+                    <p>Gold Coast, Australia</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPLIANT STATIC FOOTER -->
+    <footer>
+        <div>&copy; 2026 MAX CREATIONS. All Rights Reserved.</div>
+        <div>Designed for Elite Agencies.</div>
+    </footer>
+
+</body>
+</html>
